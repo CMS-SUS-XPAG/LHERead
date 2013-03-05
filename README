@@ -1,0 +1,22 @@
+The code produces a set of plots to validate SMS LHE files
+Currently supported models are 
+- T1tttt
+
+Each SMS model corresponds to a specific executable (e.g. python/readT1ttttLHE.py)
+which takes two arguments as input
+- name of the LHE file
+- name of the output root file
+
+To run the script
+- set the shell environment such that ROOT is seen by python, e.g.
+
+export ROOTSYS=/usr/ROOT/root
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$PYTHONDIR/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH
+export PATH=${PATH}:${ROOTSYS}/bin
+
+- run the script as in the example
+
+python python/readT1ttttLHE.py myLHEfile.lhe myHistoFile.root
+
+
