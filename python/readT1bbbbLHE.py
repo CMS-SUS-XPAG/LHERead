@@ -47,6 +47,21 @@ if __name__ == '__main__':
             if abs(p['ID']) == 5: Mb.Fill(p['M'])
             if abs(p['ID']) == 1000022: MLSP.Fill(p['M']/myLHEevent.LSPMass)                        
         del oneEvent, myLHEevent
+
+    c1 = rt.TCanvas("c1", "c1", 600, 600)
+    DalitzGluino.GetXaxis().SetTitle("m_{LSP,b1}^{2}")
+    DalitzGluino.GetYaxis().SetTitle("m_{LSP,b2}^{2}")
+    DalitzGluino.Draw("COLZ")
+    c1.SaveAs("DalitzGluino.gif")
+    MGluino.GetXaxis().SetTitle("m_{gluino}/m_{stop}^{GEN}")
+    MGluino.Draw()
+    c1.SaveAs("MGluino.gif")
+    MLSP.GetXaxis().SetTitle("m_{LSP}/m_{LSP}^{GEN}")
+    MLSP.Draw()
+    c1.SaveAs("MLSP.gif")    
+    Mb.GetXaxis().SetTitle("m_{b}")
+    Mb.Draw()
+    c1.SaveAs("Mb.gif")
         
     # write the histograms
     histoFILE = rt.TFile(sys.argv[2],"RECREATE")
